@@ -1,10 +1,14 @@
+import org.omg.CORBA.portable.UnknownException;
+
+import java.io.IOException;
+import java.net.*;
 import java.util.Scanner;
 
 /**
  * Created by Mirim on 2015-09-10.
  */
 public class UDPClientMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String message = "";
         Scanner sc = new Scanner(System.in);
 
@@ -13,10 +17,14 @@ public class UDPClientMain {
         message = sc.nextLine();//한 줄 읽음.
 
         //make packet
+        DatagramPacket dp = new DatagramPacket(message.getBytes(),
+                message.getBytes().length, InetAddress.getByName("localhost"), 1226);
 
         //make socket
+        DatagramSocket ds = new DatagramSocket();
 
         //send
+        ds.send(dp);
 
     }
 }
