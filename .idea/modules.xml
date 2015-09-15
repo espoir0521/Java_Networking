@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/InetAddress/InetAddress.iml" filepath="$PROJECT_DIR$/InetAddress/InetAddress.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java Networking.iml" filepath="$PROJECT_DIR$/Java Networking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TCP/TCP.iml" filepath="$PROJECT_DIR$/TCP/TCP.iml" />
       <module fileurl="file://$PROJECT_DIR$/UDP/UDP.iml" filepath="$PROJECT_DIR$/UDP/UDP.iml" />
     </modules>
   </component>

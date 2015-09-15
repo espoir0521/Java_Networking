@@ -12,19 +12,24 @@ public class UDPClientMain {
         String message = "";
         Scanner sc = new Scanner(System.in);
 
-        //input message
-        System.out.print("보낼 메시지 > ");
-        message = sc.nextLine();//한 줄 읽음.
+        while (true) {
+            //input message
+            System.out.print("보낼 메시지 > ");
+            message = sc.nextLine();//한 줄 읽음.
 
-        //make packet
-        DatagramPacket dp = new DatagramPacket(message.getBytes(),
-                message.getBytes().length, InetAddress.getByName("localhost"), 1226);
+            //make packet
+            DatagramPacket dp = new DatagramPacket(message.getBytes(),
+                    message.getBytes().length, InetAddress.getByName("localhost"), 1226);
 
-        //make socket
-        DatagramSocket ds = new DatagramSocket();
+            //make socket
+            DatagramSocket ds = new DatagramSocket();
 
-        //send
-        ds.send(dp);
+            //send
+            ds.send(dp);
 
+            if (message.equalsIgnoreCase("bye")) {
+                break;
+            }
+        }
     }
 }
