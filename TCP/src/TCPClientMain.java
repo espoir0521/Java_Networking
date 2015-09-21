@@ -8,6 +8,7 @@ import java.util.Scanner;
  */
 public class TCPClientMain {
     public static void main(String[] args) throws IOException {
+        System.out.print("보낼 메시지 > ");
         //input message
         String message = "";
         Scanner scanner = new Scanner(System.in);
