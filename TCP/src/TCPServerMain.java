@@ -12,15 +12,21 @@ public class TCPServerMain {
         System.out.println("TCP Server standby...");
         //make socket(accept)
         ServerSocket serverSocket = new ServerSocket(1019);
-        Socket socket = serverSocket.accept();
+        while (true) {
+            Socket socket = serverSocket.accept();
 
-        //make reader
-        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            //make reader
+            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-        //read
-        String message = reader.readLine();
+            //read
+            String message = reader.readLine();
 
-        //print message
-        System.out.println(socket.getInetAddress() + " > " + message);//"주소 > "
+            //print message
+            System.out.println(socket.getInetAddress() + " > " + message);//"주소 > "
+
+            if (message.equalsIgnoreCase("bye")) {
+                break;
+            }
+        }
     }
 }
