@@ -1,4 +1,5 @@
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class Sender extends Thread {
     Socket socket;
     DataOutputStream out;
 
-    Sender(Socket socket) {
+    Sender(Socket socket) throws IOException {
         this.socket = socket;
         //make DataOutputStream
         out = new DataOutputStream(socket.getOutputStream());
@@ -19,9 +20,16 @@ public class Sender extends Thread {
     public void run() {
         //input message
         Scanner sc = new Scanner(System.in);
-        String message = sc.nextLine();
+        while (true) {
+            //System.out.print("보낼 메시지 입력 > ");
+            String message = sc.nextLine();
 
-        // writeUTF(message)
-        out.writeUTF(message);
+            // writeUTF(message)
+            try {
+                out.writeUTF(message);//System.out.println(socket.getInetAddress() + " > " + message);//"주소 > "
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
